@@ -5,7 +5,11 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const ROUTES: Routes = [
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'user-profile', component: UserProfileComponent }
+  { path: 'user-profile', component: UserProfileComponent },
+  { path: '',
+    redirectTo: '/user-profile/user-profile.component',
+    pathMatch: 'full'
+  }
 ];
 
 export { ROUTES };
