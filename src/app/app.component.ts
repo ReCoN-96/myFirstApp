@@ -14,3 +14,8 @@ export class AppComponent {
     this.showMovie = !this.showMovie;
   }
 }
+
+export class Order {
+  pseudo: string;
+  email: string;
+}

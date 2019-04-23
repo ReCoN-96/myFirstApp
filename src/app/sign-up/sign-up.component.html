@@ -1,1 +1,58 @@
-<h1>{{title}}</h1><input [(ngModel)]="email.name" type=id: name=name: />
+
+<br>
+<br>
+<br>
+<br>
+
+
+<form (ngSubmit)="myForm.valid && onSubmit(myForm)" #myForm="ngForm" class="form-signUp">
+
+  <div>
+    <label
+      for="pseudo-order"
+      class="user"
+    >Entrer votre pseudo</label>
+    <input
+      type="text"
+      class="userNameText"
+      name="pseudo-order"
+      placeholder="Exemple : lekikoulol75"
+      [(ngModel)]="model.pseudo"
+      #pseudo="ngModel"
+      required
+      minlength="5"
+      maxlength="25"
+    >
+</div>
+
+<div *ngIf="myForm.submitted && pseudo.errors">
+  <span *ngIf="pseudo.errors['required']">Le champs quantité est requis</span>
+  <span *ngIf="pseudo.errors['minlength']">La quantité minimal doit être supérieur à 5</span>
+  <span *ngIf="pseudo.errors['maxlength']">Le champ user ne doit pas dépasser 25 caractères</span>
+</div>
+
+<div>
+  <label
+    for="email"
+    class="email"
+  >Entrer votre email</label>
+  <input
+    type="email"
+    name="email"
+    ngModel
+    placeholder="Exemple : nanare75@mail.com"
+    [(ngModel)]="model.email"
+    #email="ngModel"
+    required email
+  >
+</div>
+
+<div *ngIf="myForm.submitted && email.errors">
+  <span *ngIf="email.errors['required']">Le champs email est requis</span>
+  <span *ngIf="email.errors['email']">le champs email invalide</span>
+</div>
+
+
+  <button class="valid" type="submit">Envoyer</button>
+
+</form>

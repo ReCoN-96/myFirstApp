@@ -1,21 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { Email } from '../inputEmail';
+import { Component } from '@angular/core';
+
+import { Order } from '../order';
+
+
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss']
 })
-export class SignUpComponent implements OnInit {
-  title = 'emailRenseignéDansInput';
-  email: Email = {
-    type: 'email',
-    name: 'osf@hotmail.fr'
-  };
+export class SignUpComponent {
+  model: Order = new Order();
 
-  constructor() { }
 
-  ngOnInit() {
+
+
+  onSubmit() {
+    console.log(this.model);
   }
 
 }
