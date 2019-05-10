@@ -1,0 +1,52 @@
+<div class="box">
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+      <div class="formGinput">
+          <label>identifiant</label>
+          <input type="text" class="formInput" formControlName="identifiant" [ngClass]="{ 'is-invalid': submitted && f.identifiant.errors }">
+      </div>
+      <div class="formGinput">
+          <label>Titre</label>
+          <input type="text" class="formInput" formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+          <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+            <div *ngIf="f.title.errors">L'un des deux champs 'Identifiant' ou 'Titre' doit être renseigné</div>
+        </div>
+      </div>
+    <div class="typeForm">
+      <div class="formGcheck">
+        <label for="type">type</label>
+        <div class="select">
+          <select  id="type" formControlName="typeName" [ngClass]="{ 'is-invalid': submitted && f.typeName.errors }">
+              <option value="" disabled>chosissez votre type de contenu</option>
+              <option *ngFor="let type of Type" >{{type}}</option>
+          </select>
+        </div>
+        <div *ngIf="submitted && f.typeName.errors" class="invalid-feedback">
+          <div *ngIf="f.typeName.errors.required">type is required</div>
+      </div>
+      </div>
+    </div>
+    <div class="formGinput">
+        <label>année de sortie</label>
+        <input type="text" class="formInput" formControlName="date" [ngClass]="{ 'is-invalid': submitted && f.date.errors }">
+        <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+          <div *ngIf="f.date.errors.required">année de sortie is required</div>
+          <div *ngIf="!f.date.errors.required && f.date.errors.rangeDate">L'année doit être comprise entre 1900 et 2019</div>
+      </div>
+    </div>
+    <div class="typeForm">
+        <div class="formGcheck">
+            <label for="plug">fiche</label>
+            <div class="select">
+              <select id="plug" formControlName="plugName" [ngClass]="{ 'is-invalid': submitted && f.plugName.errors }">
+                  <option value="" disabled>chosissez votre type de contenu</option>
+                  <option *ngFor="let plug of Plug" >{{plug}}</option>
+              </select>
+            </div>
+            <div *ngIf="submitted && f.plugName.errors" class="invalid-feedback">
+              <div *ngIf="f.plugName.errors.required">fiche is required</div>
+          </div>
+        </div>
+    </div>
+    <button class="button is-danger is-outlined" type="submit">submit</button>
+  </form>
+</div>

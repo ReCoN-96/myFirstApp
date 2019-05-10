@@ -12,6 +12,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { MenuComponent } from './menu/menu.component';
 import { ROUTES } from './app.routes';
 import { RouterModule } from '@angular/router';
+import { SearchMovieComponent } from './search-movie/search-movie.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RouterModule } from '@angular/router';
     DisplayListDirective,
     SignUpComponent,
     UserProfileComponent,
-    MenuComponent
+    MenuComponent,
+    SearchMovieComponent
   ],
   imports: [
     BrowserModule,

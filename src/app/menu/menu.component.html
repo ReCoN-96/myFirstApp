@@ -1,10 +1,22 @@
 
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
 
-<ul>
-  <li>
-    <a [routerLink]="['/sign-up']">sign-up</a>
-  </li>
-  <li>
-    <a [routerLink]="['/user-profile']">user profile</a>
-  </li>
-</ul>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+
+      <a class="navbar-item" [routerLink]="['/sign-up']">sign-up</a>
+
+
+      <a class="navbar-item" [routerLink]="['/user-profile']">user profile</a>
+
+      <a class="navbar-item" [routerLink]="['/search-movie']">search movie</a>
+    </div>
+  </div>
+</nav>
